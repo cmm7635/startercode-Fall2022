@@ -2,16 +2,17 @@ from mrjob.job import MRJob
 
 class Q1(MRJob):
   def mapper(self,key,line):
-      parts = line.split()
+      parts = line.split("\t")
       origin_airport = parts[3]
       origin_airport_2022 = parts[3]
       num_passengers = parts[7]
+      num_passengers_2022 = parts[7]
       
       key = origin_airport
-      value1 = (num_passengers, "Outgoing)
+      value1 = (num_passengers)
       
       key = origin_airport_2022
-      value2 = (num_passengers, "Outgoing")
+      value2 = (num_passengers_2022)
       
       key = origin_airport
       value = ((value1 + value2), (value1 - value2))
