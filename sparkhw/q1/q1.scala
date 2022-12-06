@@ -31,7 +31,7 @@ object Q1 extends App {
       def zeroVal = (0.0,0.0)
       def func = (state: (Float, Float), v: (Float, Float)) = state._1 + v._1, state._2 + v._2)
       val result = both.aggregateByKey(zeroVal)(func, func)
-      val pCount = result.filter{case (airport, (incoming, outgoing)) => incoming - outgoing >= x}
+      val pCount = result.filter{case (airport, (incoming, outgoing)) => count >= x}
       pCount
     }
 
